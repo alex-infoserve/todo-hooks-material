@@ -1,30 +1,21 @@
-/* import React from 'react'
-import ReactDOM from 'react-dom'
-//import App from './App'
-import TodoLayout from './TodoLayout'
-import * as serviceWorker from './serviceWorker'
-
-ReactDOM.render(<TodoLayout />, document.getElementById('root'))
-serviceWorker.unregister()
- */
-import './style.css'
-
 import React, { memo } from 'react'
 import ReactDOM from 'react-dom'
 
-import { useInputValue, useTodos } from './custom-hooks'
-
 import Layout from './components/TodoLayout'
-
 import AddTodo from './components/AddTodo'
 import TodoList from './components/TodoList'
+import { useInputValue, useSelectValue, useTodos } from './custom-hooks'
+
+import './style.css'
 
 const TodoApp = memo(props => {
   const { inputValue, changeInput, clearInput, keyInput } = useInputValue()
+  const { selectValue, changeSelect, clearSelect } = useSelectValue()
   const { todos, addTodo, checkTodo, removeTodo } = useTodos()
 
   const clearInputAndAddTodo = _ => {
     clearInput()
+    clearSelect()
     addTodo(inputValue)
   }
 
@@ -35,6 +26,8 @@ const TodoApp = memo(props => {
         onInputChange={changeInput}
         onButtonClick={clearInputAndAddTodo}
         onInputKeyPress={event => keyInput(event, clearInputAndAddTodo)}
+        selectValue={selectValue}
+        onSelectChange={changeSelect}
       />
       <TodoList
         items={todos}

@@ -18,6 +18,16 @@ export const useInputValue = (initialValue = '') => {
   }
 }
 
+export const useSelectValue = (initialValue = []) => {
+  const [selectValue, setSelectValue] = useState(initialValue)
+
+  return {
+    selectValue,
+    changeSelect: event => setSelectValue(event.target.value),
+    clearSelect: () => setSelectValue('')
+  }
+}
+
 export const useTodos = (initialValue = []) => {
   const [todos, setTodos] = useState(initialValue)
 
