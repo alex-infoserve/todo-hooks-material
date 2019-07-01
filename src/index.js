@@ -16,7 +16,7 @@ const TodoApp = memo(props => {
   const clearInputAndAddTodo = _ => {
     clearInput()
     clearSelect()
-    addTodo(inputValue)
+    addTodo(inputValue, selectValue)
   }
 
   return (

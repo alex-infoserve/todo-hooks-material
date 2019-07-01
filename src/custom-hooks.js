@@ -33,11 +33,13 @@ export const useTodos = (initialValue = []) => {
 
   return {
     todos,
-    addTodo: text => {
+    addTodo: (text, selectValue) => {
       if (text !== '') {
+        if (!selectValue.length) selectValue = 'Normal'
         setTodos(
           todos.concat({
             text,
+            selectValue,
             checked: false
           })
         )
