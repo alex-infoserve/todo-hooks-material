@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
 import CheckCircleIcon from '@material-ui/icons/CheckCircle'
@@ -82,8 +82,8 @@ MySnackbarContentWrapper.propTypes = {
   variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired
 }
 
-const SnackbarMessage = () => {
-  const [open, setOpen] = useState[true]
+export default function CustomizedSnackbars() {
+  const [open, setOpen] = React.useState(true)
 
   function handleClose(event, reason) {
     if (reason === 'clickaway') {
@@ -113,5 +113,3 @@ const SnackbarMessage = () => {
     </div>
   )
 }
-
-export default SnackbarMessage
