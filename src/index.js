@@ -5,6 +5,7 @@ import Layout from './components/TodoLayout'
 import AddTodo from './components/AddTodo'
 import TodoList from './components/TodoList'
 import { useInputValue, useSelectValue, useTodos } from './custom-hooks'
+import SnackbarMessage from './components/SnackbarMessage'
 
 import './style.css'
 
@@ -17,6 +18,7 @@ const TodoApp = memo(props => {
     clearInput()
     clearSelect()
     addTodo(inputValue, selectValue)
+    SnackbarMessage()
   }
 
   return (
