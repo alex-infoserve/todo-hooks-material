@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+//input text
 export const useInputValue = (initialValue = '') => {
   const [inputValue, setInputValue] = useState(initialValue)
 
@@ -18,28 +19,42 @@ export const useInputValue = (initialValue = '') => {
   }
 }
 
+//selectbox
 export const useSelectValue = (initialValue = []) => {
   const [selectValue, setSelectValue] = useState(initialValue)
 
   return {
     selectValue,
     changeSelect: event => setSelectValue(event.target.value),
-    clearSelect: () => setSelectValue('')
+    clearSelect: () => setSelectValue([])
   }
 }
 
+//date picker
+export const useDatePicker = (initialValue = null) => {
+  const [datepickerValue, setDatepicker] = useState(initialValue)
+
+  return {
+    datepickerValue,
+    changeDatepicker: event => setDatepicker(event),
+    clearDatepicker: () => setDatepicker(null)
+  }
+}
+
+// funcoes
 export const useTodos = (initialValue = []) => {
   const [todos, setTodos] = useState(initialValue)
 
   return {
     todos,
-    addTodo: (text, selectValue) => {
+    addTodo: (text, selectValue, datepickerValue) => {
       if (text !== '') {
         if (!selectValue.length) selectValue = 'Normal'
         setTodos(
           todos.concat({
             text,
             selectValue,
+            datepickerValue,
             checked: false
           })
         )

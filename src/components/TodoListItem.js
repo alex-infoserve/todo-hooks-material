@@ -36,7 +36,7 @@ const TodoListItem = memo(props => (
       label={props.selectValue}
       style={{ marginRight: 10 }}
     />
-    <ListItemText primary={props.text} />
+    <ListItemText primary={props.datepickerValue + ' ' + props.text} />
     <ListItemSecondaryAction>
       <Tooltip title='Delete'>
         <IconButton aria-label='Delete Todo' onClick={props.onButtonClick}>

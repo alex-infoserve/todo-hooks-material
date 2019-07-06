@@ -26,7 +26,6 @@ function App() {
 
   const handleSubmit = e => {
     e.preventDefault()
-    console.log(`kek ${todo}`)
   }
 
   return (

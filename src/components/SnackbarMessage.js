@@ -83,6 +83,7 @@ MySnackbarContentWrapper.propTypes = {
 }
 
 export default function CustomizedSnackbars() {
+  console.log('hey im in')
   const [open, setOpen] = React.useState(true)
 
   function handleClose(event, reason) {
