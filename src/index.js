@@ -11,6 +11,13 @@ import {
   useTodos
 } from './custom-hooks'
 
+//TODO:-edit the todo using a form dialog
+//TODO: do a search function (tbd how to handle)
+//TODO: configure keyboard shortcuts
+
+//?do a button to list: active todos / completed tasks
+//?show a message (snackbar?) after any CRUD operation
+
 //import CustomizedSnackbars from './components/SnackbarMessage'
 
 import './style.css'
@@ -35,7 +42,7 @@ const TodoApp = memo(props => {
     clearInput()
     clearDatepicker()
     clearSelect()
-    addTodo(inputValue, selectValue)
+    addTodo(inputValue, selectValue, datepickerValue)
     //setMessage({ type: 'Success', message: 'This shit was added successfully' })
   }
 

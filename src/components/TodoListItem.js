@@ -1,5 +1,12 @@
 import React, { memo } from 'react'
-
+import EditTodo from './EditTodo'
+import {
+  TODO_PRIORITY_1,
+  TODO_PRIORITY_2,
+  TODO_PRIORITY_3,
+  TOOLTIP_BTN_EDIT_TODO,
+  TOOLTIP_BTN_DELETE_TODO
+} from '../assets/en_US'
 import {
   Chip,
   ListItem,
@@ -9,14 +16,16 @@ import {
   ListItemText,
   ListItemSecondaryAction
 } from '@material-ui/core'
-
+import EditOutlined from '@material-ui/icons/EditOutlined'
 import DeleteOutlined from '@material-ui/icons/DeleteOutlined'
 
 const getChipColor = priority => {
   switch (priority) {
-    case 'High':
+    case TODO_PRIORITY_1:
+      return 'default'
+    case TODO_PRIORITY_2:
       return 'primary'
-    case 'Urgent':
+    case TODO_PRIORITY_3:
       return 'secondary'
     default:
       return 'default'
@@ -36,10 +45,20 @@ const TodoListItem = memo(props => (
       label={props.selectValue}
       style={{ marginRight: 10 }}
     />
-    <ListItemText primary={props.datepickerValue + ' ' + props.text} />
+    <ListItemText
+      primary={props.text}
+      secondary={`${
+        props.datepickerValue ? props.datepickerValue.toDateString() : ''
+      }`}
+    />
     <ListItemSecondaryAction>
-      <Tooltip title='Delete'>
-        <IconButton aria-label='Delete Todo' onClick={props.onButtonClick}>
+      <Tooltip title={TOOLTIP_BTN_EDIT_TODO}>
+        <IconButton onClick={() => EditTodo()}>
+          <EditOutlined />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title={TOOLTIP_BTN_DELETE_TODO}>
+        <IconButton onClick={props.onButtonClick}>
           <DeleteOutlined />
         </IconButton>
       </Tooltip>

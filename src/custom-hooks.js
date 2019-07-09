@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { TODO_PRIORITY_1 } from './assets/en_US'
 
 //input text
 export const useInputValue = (initialValue = '') => {
@@ -49,7 +50,7 @@ export const useTodos = (initialValue = []) => {
     todos,
     addTodo: (text, selectValue, datepickerValue) => {
       if (text !== '') {
-        if (!selectValue.length) selectValue = 'Normal'
+        if (!selectValue.length) selectValue = TODO_PRIORITY_1
         setTodos(
           todos.concat({
             text,
