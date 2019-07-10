@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import ReactDOM from 'react-dom'
 
-import Layout from './components/TodoLayout'
 import AddTodo from './components/AddTodo'
+import Layout from './components/TodoLayout'
 import TodoList from './components/TodoList'
 import {
   useInputValue,
@@ -31,10 +31,10 @@ import './style.css'
 //}
 
 const TodoApp = memo(props => {
+  const { todos, addTodo, checkTodo, removeTodo } = useTodos()
+  const { selectValue, changeSelect, clearSelect } = useSelectValue()
   const { inputValue, changeInput, clearInput, keyInput } = useInputValue()
   const { datepickerValue, changeDatepicker, clearDatepicker } = useDatePicker()
-  const { selectValue, changeSelect, clearSelect } = useSelectValue()
-  const { todos, addTodo, checkTodo, removeTodo } = useTodos()
 
   //const [message, setMessage] = useState({ type: '', message: '' })
 
